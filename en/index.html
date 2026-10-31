@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FDE: What It Is and How to Become One</title>
+<meta name="description" content="The Forward Deployed Engineer role: a definition, a high-level insurance scenario, a level-by-level roadmap built from 20 current job postings, open roles and resources.">
+<meta name="author" content="Selman Ay">
+<link rel="canonical" href="https://selmanmoon.github.io/fde/en/">
+<link rel="alternate" hreflang="en" href="https://selmanmoon.github.io/fde/en/">
+<link rel="alternate" hreflang="tr" href="https://selmanmoon.github.io/fde/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#FCFBFB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0E0F" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:title" content="FDE: What It Is and How to Become One">
+<meta property="og:description" content="The Forward Deployed Engineer role: a definition, a high-level insurance scenario, a level-by-level roadmap built from 20 current job postings, open roles and resources.">
+<meta property="og:url" content="https://selmanmoon.github.io/fde/en/">
+<meta property="og:image" content="https://selmanmoon.github.io/fde/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FDE: What is it? How do you become one? Selman Ay">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FDE: What It Is and How to Become One">
+<meta name="twitter:description" content="The Forward Deployed Engineer role: a definition, a high-level insurance scenario, a level-by-level roadmap built from 20 current job postings, open roles and resources.">
+<meta name="twitter:image" content="https://selmanmoon.github.io/fde/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<!-- Icons: Lucide (ISC license) -->
+<style>
+:root{
+  --paper:#FCFBFB; --paper-2:#F5F3F3; --surface:#FFFFFF;
+  --ink:#141214; --ink-2:#3B373A; --muted:#736D71;
+  --line:#EAE6E7; --line-2:#D6D0D2;
+  --red:#FF0033; --red-ink:#D0002A; --red-wash:#FFEDF0;
+  --ok:#0E7A4A; --warn:#9A5B00;
+  --th-bg:#141214; --th-fg:#FFFFFF;
+  --code-bg:#F4F2F2; --code-ink:#2A272A;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#0F0E0F; --paper-2:#171517; --surface:#1B191B;
+    --ink:#F5F2F3; --ink-2:#CEC8CB; --muted:#958E92;
+    --line:#2A2729; --line-2:#3E393C;
+    --red:#FF3355; --red-ink:#FF5A74; --red-wash:#3A1119;
+    --ok:#3FD08E; --warn:#F2B14E;
+    --th-bg:#2C282B; --th-fg:#F5F2F3;
+    --code-bg:#1A181A; --code-ink:#E6E1E4;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0F0E0F; --paper-2:#171517; --surface:#1B191B;
+  --ink:#F5F2F3; --ink-2:#CEC8CB; --muted:#958E92;
+  --line:#2A2729; --line-2:#3E393C;
+  --red:#FF3355; --red-ink:#FF5A74; --red-wash:#3A1119;
+  --ok:#3FD08E; --warn:#F2B14E;
+  --th-bg:#2C282B; --th-fg:#F5F2F3;
+  --code-bg:#1A181A; --code-ink:#E6E1E4;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink-2);font:400 17px/1.7 var(--f-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--red);color:#fff}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-decoration-thickness:1px;text-underline-offset:3px;transition:color .15s,text-decoration-color .15s}
+a:hover{color:var(--red-ink);text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:3px}
+strong,b{color:var(--ink);font-weight:600}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code-bg);color:var(--code-ink);padding:.1em .38em;border-radius:5px}
+i,em{font-style:italic}
+
+/* progress */
+.progress{position:fixed;inset:0 0 auto 0;padding-top:env(safe-area-inset-top,0px);z-index:40;pointer-events:none}
+.progress>span{display:block;height:3px;background:var(--red);transform:scaleX(0);transform-origin:0 50%}
+
+/* cover */
+.cover{min-height:100vh;min-height:100svh;display:flex;padding-block:clamp(28px,5vw,64px);padding-inline:clamp(20px,6vw,96px);border-bottom:1px solid var(--line)}
+.cover-in{flex:1;display:grid;grid-template-rows:1fr;width:100%;max-width:1340px;margin-inline:auto}
+.yt{display:block;width:clamp(72px,7.5vw,104px);height:auto}
+.cover-title{align-self:end;padding-block:56px 8px}
+.cover h1{margin:0;font-family:var(--f-display);color:var(--ink);font-weight:800}
+.cover .fde{display:block;font-size:clamp(118px,24vw,340px);line-height:.8;font-stretch:125%;letter-spacing:-.055em;margin-left:-.045em}
+.cover .q{display:block;margin-top:.42em;font-size:clamp(30px,4.8vw,68px);line-height:1.04;font-weight:600;font-stretch:100%;letter-spacing:-.028em}
+.cover .q span{color:var(--red)}
+.cover-top{display:flex;align-items:center;gap:clamp(14px,1.6vw,22px);margin-bottom:clamp(28px,3.6vw,48px)}
+.cover-name{margin:0;font:600 clamp(20px,2.1vw,30px)/1 var(--f-body);color:var(--ink);letter-spacing:-.005em}
+.lang{margin-left:auto;font:500 13px/1 var(--f-mono);letter-spacing:.04em;color:var(--muted);text-decoration:none;border:1px solid var(--line-2);border-radius:999px;padding:8px 12px}
+.lang:hover{color:var(--red-ink);border-color:currentColor}
+
+/* toc */
+.toc{padding-block:clamp(64px,8vw,120px);padding-inline:clamp(20px,6vw,96px);border-bottom:1px solid var(--line)}
+.toc-in{max-width:1340px;margin-inline:auto}
+.toc h2{margin:0 0 clamp(36px,5vw,64px);font:800 clamp(42px,6vw,84px)/.95 var(--f-display);font-stretch:112%;letter-spacing:-.04em;color:var(--ink)}
+.toc-list{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.toc-item{display:grid;grid-template-columns:clamp(44px,7vw,96px) minmax(0,1fr);column-gap:clamp(12px,2vw,24px);padding-block:clamp(22px,3vw,34px);border-bottom:1px solid var(--line-2)}
+.toc-no{font:500 14px/1 var(--f-mono);color:var(--red-ink);padding-top:.9em;letter-spacing:.04em}
+.toc-main{font:700 clamp(26px,3.4vw,44px)/1.08 var(--f-display);font-stretch:106%;letter-spacing:-.025em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:baseline;gap:.35em}
+.toc-main::after{content:"";width:.5em;height:.5em;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-.12em) rotate(45deg) scale(.6);opacity:0;transition:opacity .15s,transform .15s}
+.toc-main:hover{color:var(--red-ink)}
+.toc-main:hover::after{opacity:1;transform:translateY(0) rotate(45deg) scale(.6)}
+.toc-subs{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 28px}
+.toc-subs a{display:flex;gap:10px;font:400 14.5px/1.45 var(--f-body);color:var(--ink-2);text-decoration:none;padding-block:3px}
+.toc-subs a span{font:500 12.5px/1.6 var(--f-mono);color:var(--muted);min-width:30px}
+.toc-subs a:hover{color:var(--red-ink)}
+
+/* layout */
+.layout{display:grid;grid-template-columns:minmax(0,1fr);max-width:1340px;margin-inline:auto;padding-inline:clamp(16px,5vw,96px)}
+.rail{display:none}
+main{min-width:0;max-width:1100px}
+@media (min-width:1180px){
+  .layout{grid-template-columns:184px minmax(0,1fr);column-gap:clamp(32px,3.5vw,56px)}
+  .rail{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 28px);align-self:start;max-height:calc(100vh - 56px);overflow:auto;padding-block:clamp(88px,11vw,150px) 24px;scrollbar-width:none}
+}
+.rail ol{list-style:none;margin:0;padding:0}
+.rail-top{display:block;font:500 11.5px/1 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-decoration:none;margin-bottom:22px}
+.rail-sec{margin-bottom:8px}
+.rail a.rl{display:flex;gap:10px;color:var(--muted);text-decoration:none;font:500 13.5px/1.35 var(--f-body);padding-block:4px}
+.rail a.rl .rn{font:500 11.5px/1.6 var(--f-mono);min-width:24px}
+.rail a.rl:hover{color:var(--ink)}
+.rail a.rl.is-on{color:var(--ink)}
+.rail a.rl.is-on .rn{color:var(--red-ink)}
+.rail .sub{display:none;margin:4px 0 10px 11px;padding-left:22px;border-left:1px solid var(--line-2)}
+.rail-sec.is-open .sub{display:block}
+.rail .sub a.rl{font-size:12.5px;font-weight:400;padding-block:3px}
+.rail .sub a.rl.is-on{color:var(--ink);font-weight:500}
+
+/* sections */
+.sec{padding-block:clamp(80px,9vw,128px) 16px}
+.sec+.sec{border-top:1px solid var(--line)}
+.sec-head{margin-bottom:clamp(32px,4vw,56px)}
+.sec-no{display:block;font:500 13px/1 var(--f-mono);color:var(--red-ink);letter-spacing:.06em;margin-bottom:18px}
+.sec h2{margin:0;font:800 clamp(40px,6.2vw,82px)/.96 var(--f-display);font-stretch:112%;letter-spacing:-.04em;color:var(--ink);text-wrap:balance;max-width:16ch}
+.sec h2.h2-long{font-size:clamp(34px,4.8vw,62px);line-height:1.02;max-width:24ch}
+.sec-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+h3{margin:clamp(64px,8vw,96px) 0 20px;font:700 clamp(24px,2.7vw,32px)/1.15 var(--f-display);font-stretch:104%;letter-spacing:-.022em;color:var(--ink);text-wrap:balance;scroll-margin-top:28px}
+h3 .h-no{display:block;font:500 12.5px/1 var(--f-mono);color:var(--muted);letter-spacing:.04em;margin-bottom:12px}
+.sec-head+h3{margin-top:0}
+h4{margin:0;font:700 19px/1.3 var(--f-display);font-stretch:102%;letter-spacing:-.01em;color:var(--ink)}
+p{margin:0 0 18px;max-width:68ch}
+.lead{font-size:clamp(20px,2.1vw,25px);line-height:1.5;color:var(--ink);max-width:36em;letter-spacing:-.006em;margin-bottom:26px}
+.note{font:400 14px/1.6 var(--f-mono);color:var(--muted);max-width:70ch}
+ul.list,ol.list{margin:0 0 22px;padding:0;list-style:none;max-width:70ch;display:grid;gap:12px}
+ul.list>li{position:relative;padding-left:22px}
+ul.list>li::before{content:"";position:absolute;left:2px;top:.68em;width:7px;height:7px;background:var(--ink);border-radius:1px}
+ol.list{counter-reset:n}
+ol.list>li{position:relative;padding-left:40px;counter-increment:n}
+ol.list>li::before{content:counter(n);position:absolute;left:0;top:.18em;width:26px;height:26px;border:1px solid var(--line-2);border-radius:50%;font:500 12px/24px var(--f-mono);text-align:center;color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--f-mono);color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:6px 10px;white-space:nowrap}
+.chip-red{color:var(--red-ink);border-color:currentColor}
+
+/* traits */
+.traits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 44px;margin:40px 0 8px}
+.trait{border-top:1.5px solid var(--ink);padding-top:16px}
+.trait h4{font-size:20px;margin-bottom:8px}
+.trait p{font-size:15.5px;line-height:1.62;margin:0}
+@media (max-width:720px){.traits{grid-template-columns:1fr;gap:28px}}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:26px 0 30px}
+.role{border:1px solid var(--line-2);border-radius:14px;background:var(--surface);padding:20px 20px 18px;display:flex;flex-direction:column;gap:6px}
+.role-hot{border:1.5px solid var(--ink)}
+.role-name{font:800 30px/1 var(--f-display);font-stretch:112%;letter-spacing:-.03em;color:var(--ink);display:flex;align-items:center;gap:10px}
+.role-hot .role-name::after{content:"FDE";font:600 11px/1 var(--f-mono);letter-spacing:.04em;color:#fff;background:var(--red);border-radius:5px;padding:5px 6px}
+.role-title{font:500 12.5px/1.4 var(--f-mono);color:var(--muted);margin-bottom:6px}
+.role p{font-size:15px;line-height:1.6;margin:0}
+@media (max-width:820px){.roles{grid-template-columns:1fr}}
+
+/* timeline */
+.tl{list-style:none;margin:30px 0 20px;padding:0 0 0 2px;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:10px;bottom:14px;width:1.5px;background:var(--ink)}
+.tl li{position:relative;display:grid;grid-template-columns:112px minmax(0,1fr);gap:2px 18px;padding:0 0 20px 34px}
+.tl li::before{content:"";position:absolute;left:0;top:.42em;width:15px;height:15px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink);box-sizing:border-box}
+.tl li.hot::before{background:var(--red);border-color:var(--red)}
+.tl .when{font:500 12.5px/1.75 var(--f-mono);color:var(--muted)}
+.tl .what{font-size:16px;line-height:1.6;color:var(--ink-2);max-width:62ch}
+.tl .what b{font:700 16.5px/1 var(--f-display);font-stretch:104%;color:var(--ink);margin-right:8px}
+.tl .what a{font:500 12px/1 var(--f-mono);margin-left:8px;white-space:nowrap;color:var(--muted)}
+.tl .what a:hover{color:var(--red-ink)}
+@media (max-width:560px){.tl li{grid-template-columns:1fr}}
+
+/* figures */
+.fig{margin:44px 0 52px}
+.frame{border:1px solid var(--line-2);border-radius:14px;background:var(--surface);padding:clamp(14px,2.4vw,28px);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.frame svg{display:block;width:100%;height:auto}
+.frame .w-760{min-width:760px}
+.frame .w-900{min-width:900px}
+@media (min-width:1180px){.fig-wide{margin-right:-40px}.fig-wide .frame{padding:18px}}
+@media (min-width:1400px){.fig-wide{margin-right:-72px}}
+figcaption{margin-top:14px;font:400 14px/1.6 var(--f-body);color:var(--muted);max-width:86ch}
+figcaption .fno{font:500 12.5px/1 var(--f-mono);color:var(--ink);margin-right:8px;letter-spacing:.02em}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 14px;font:400 13px/1.3 var(--f-body);color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:2px}
+.legend i.l-ink{background:var(--ink)}
+.legend i.l-red{background:var(--red)}
+.legend i.l-grey{background:var(--line-2)}
+.legend i.l-parent{background:var(--ink);opacity:.22}
+.legend i.l-dia{width:10px;height:10px;background:var(--ink);transform:rotate(45deg);border-radius:1px}
+.legend i.l-dot{width:12px;height:12px;border-radius:50%;background:var(--red)}
+
+/* svg */
+.svg{color:var(--ink-2)}
+.svg text{font-family:var(--f-body);font-size:12px;fill:var(--ink)}
+.svg .mono{font-family:var(--f-mono)}
+.svg .t-10{font-size:10.5px}
+.svg .t-11{font-size:11px}
+.svg .t-12{font-size:12px}
+.svg .t-13{font-size:13px}
+.svg .t-14{font-size:14px}
+.svg .t-115{font-size:11.5px}
+.svg .t-b{font-weight:600}
+.svg .t-muted{fill:var(--muted)}
+.svg .t-ink2{fill:var(--ink-2)}
+.svg .t-red{fill:var(--red-ink)}
+.svg .t-white{fill:#fff}
+.svg .t-paper{fill:var(--paper)}
+.svg .ls{letter-spacing:.08em}
+.svg .ln{stroke:currentColor;stroke-width:1.25;fill:none}
+.svg .ln-main{stroke:var(--ink);stroke-width:2}
+.svg .ln-dash{stroke-dasharray:4 3}
+.svg .grid{stroke:var(--line);stroke-width:1}
+.svg .box{fill:var(--surface);stroke:var(--line-2);stroke-width:1}
+.svg .box-ext{stroke-dasharray:5 4}
+.svg .box-soft{fill:var(--paper-2);stroke:var(--line-2);stroke-width:1}
+.svg .box-strong{fill:var(--surface);stroke:var(--ink);stroke-width:1.25}
+.svg .box-human{fill:var(--surface);stroke:var(--red);stroke-width:1.6}
+.svg .seg{fill:var(--line)}
+.svg .seg-2{fill:var(--line-2)}
+.svg .seg-red{fill:var(--red)}
+.svg .seg-ink{fill:var(--ink)}
+.svg .ghost{fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4}
+.svg .bar{fill:var(--ink)}
+.svg .bar-red{fill:var(--red)}
+.svg .bar-wait{fill:var(--line-2)}
+.svg .bar-parent{fill:var(--ink);fill-opacity:.22}
+.svg .zebra{fill:var(--paper-2)}
+.svg .dia{fill:var(--ink)}
+.svg .dot{fill:var(--red)}
+.svg a:hover .dot{fill:var(--ink)}
+.svg a:focus-visible{outline:none}
+.svg a:focus-visible .dot{stroke:var(--ink);stroke-width:2}
+
+/* process strip */
+.flow{list-style:none;margin:28px 0 30px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.flow li{display:flex;align-items:center;gap:8px;font:500 14px/1 var(--f-body);color:var(--ink-2)}
+.flow li span{border:1px solid var(--line-2);border-radius:8px;padding:10px 12px;background:var(--surface)}
+.flow li:not(:last-child)::after{content:"→";font:400 15px/1 var(--f-body);color:var(--muted)}
+.flow li.hot span{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.flow li.hot span b{color:var(--paper)}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:14px;overflow:hidden;margin:28px 0 36px}
+.tile{background:var(--surface);padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.tile-val{font:700 clamp(34px,3.6vw,46px)/1 var(--f-display);font-stretch:108%;letter-spacing:-.03em;color:var(--ink)}
+.tile-val small{font-size:.46em;font-weight:600;letter-spacing:0;margin-left:4px;color:var(--ink-2)}
+.tile-label{font-size:14px;line-height:1.45;color:var(--ink-2)}
+.tile-before{font:500 12.5px/1 var(--f-mono);color:var(--muted)}
+.tile-before s{text-decoration-thickness:1px}
+.tile-meta{font:500 12.5px/1.4 var(--f-mono);color:var(--ok);margin-top:auto}
+.tile-src{margin-top:auto;font:500 12px/1.4 var(--f-mono);color:var(--muted);text-decoration:none}
+.tile-src:hover{color:var(--red-ink);text-decoration:underline}
+.tiles.t3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.tiles,.tiles.t3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.tiles,.tiles.t3{grid-template-columns:1fr}}
+
+/* icons */
+.ic{display:block;width:22px;height:22px;flex:none}
+
+/* journey */
+.journey{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px;position:relative}
+.journey::before{content:"";position:absolute;left:26px;right:calc((100% - 110px) / 6 - 26px);top:26px;height:1.5px;background:var(--line-2)}
+.journey li{position:relative;display:flex;flex-direction:column;gap:6px}
+.j-ic{width:52px;height:52px;border-radius:50%;background:var(--surface);border:1.5px solid var(--ink);display:grid;place-items:center;color:var(--ink);position:relative;z-index:1;flex:none}
+.j-ic .ic{width:24px;height:24px}
+.j-hot .j-ic{background:var(--red);border-color:var(--red);color:#fff}
+.j-when{font:500 12px/1 var(--f-mono);color:var(--muted);margin-top:12px}
+.journey h4{font-size:18px;line-height:1.25}
+.journey p{font-size:14.5px;line-height:1.55;margin:0;color:var(--ink-2)}
+.j-loop{display:flex;align-items:center;gap:16px;margin-top:30px;padding:16px 20px;border:1.5px dashed var(--line-2);border-radius:14px;background:var(--surface)}
+.j-loop p{margin:0;font-size:15.5px;line-height:1.55}
+.j-ic.sm{width:44px;height:44px}
+.j-ic.sm .ic{width:20px;height:20px}
+@media (max-width:980px){.journey{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:34px}.journey::before{display:none}}
+@media (max-width:600px){
+  .journey{grid-template-columns:1fr;row-gap:22px}
+  .journey::before{display:block;left:25px;right:auto;top:10px;bottom:10px;width:1.5px;height:auto}
+  .journey li{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:16px;row-gap:4px}
+  .journey li .j-ic{grid-row:1 / span 3}
+  .j-when{margin-top:4px}
+}
+
+/* architecture */
+.arch{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1.15fr) 40px minmax(0,1fr);row-gap:18px;padding:clamp(16px,2.4vw,28px);border:1px solid var(--line-2);border-radius:16px;background:var(--surface)}
+.arch-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.arch-lbl{font:500 11.5px/1 var(--f-mono);letter-spacing:.08em;color:var(--muted);margin:2px 0 4px}
+.node{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line-2);border-radius:12px;background:var(--surface);position:relative}
+.node-ic{flex:none;width:42px;height:42px;border-radius:11px;background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
+.node b{display:block;font:600 15.5px/1.3 var(--f-body);color:var(--ink)}
+.node small{display:block;font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:3px}
+.arch-core{background:var(--paper-2);border-radius:14px;padding:14px 14px 12px;margin:-14px 0}
+.arch-core .node-ic{background:var(--ink);color:var(--paper)}
+.arch-core .node+.node::before{content:"";position:absolute;left:34px;top:-13px;width:1.5px;height:12px;background:var(--ink)}
+.node-red{border:1.5px solid var(--red)}
+.node-red .node-ic{background:var(--red);color:#fff}
+.arch-arrow{display:grid;place-items:center;color:var(--muted)}
+.arch-note{display:flex;gap:8px;align-items:center;font:500 12.5px/1.4 var(--f-mono);color:var(--muted);padding:2px 2px 0}
+.arch-note .ic{width:16px;height:16px}
+.arch-band{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding-top:18px;margin-top:6px;border-top:1px solid var(--line)}
+.arch-band span{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--paper-2);font-size:13.5px;line-height:1.35;color:var(--ink)}
+.arch-band .ic{width:18px;height:18px;color:var(--ink)}
+@media (max-width:900px){
+  .arch{grid-template-columns:minmax(0,1fr)}
+  .arch-core{margin:0}
+  .arch-arrow{height:28px}
+  .arch-arrow .ic{transform:rotate(90deg)}
+  .arch-band{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){.arch-band{grid-template-columns:1fr}}
+
+/* issues */
+.issues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 20px}
+.issue{border:1px solid var(--line-2);border-radius:14px;background:var(--surface);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px}
+.issue-ic{width:40px;height:40px;border-radius:11px;background:var(--paper-2);color:var(--ink);display:grid;place-items:center}
+.issue h4{font-size:17px;line-height:1.3}
+.issue dl{margin:0;display:grid;gap:10px}
+.issue dt{font:500 11px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.issue dd{margin:5px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:980px){.issues{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.issues{grid-template-columns:1fr}}
+
+/* quest path */
+.quest{border:1px solid var(--line-2);border-radius:18px;background:var(--surface);padding:clamp(18px,2.8vw,34px)}
+.q-start h4{display:flex;align-items:center;gap:8px;font-size:19px;margin-bottom:14px}
+.q-start h4 .ic{width:20px;height:20px;color:var(--red)}
+.q-personas{display:flex;flex-wrap:wrap;gap:8px}
+.q-persona{display:inline-flex;align-items:center;gap:10px;font:500 14px/1.25 var(--f-body);text-align:left;padding:8px 8px 8px 14px;border-radius:999px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.q-persona span{font:600 11px/1 var(--f-mono);padding:5px 7px;border-radius:999px;background:var(--paper-2);color:var(--ink-2);white-space:nowrap}
+.q-persona:hover{border-color:var(--ink)}
+.q-persona[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.q-persona[aria-pressed="true"] span{background:var(--red);color:#fff}
+.q-xp{display:flex;align-items:center;gap:14px;margin:18px 0 8px;flex-wrap:wrap}
+.q-xp-lbl{font:500 13px/1 var(--f-mono);color:var(--ink-2);white-space:nowrap}
+.q-xp-lbl b{font-weight:700;color:var(--ink)}
+.q-xp-bar{flex:1;min-width:140px;height:10px;border-radius:5px;background:var(--paper-2);overflow:hidden}
+.q-xp-bar span{display:block;height:100%;width:0;background:var(--red);border-radius:5px;transition:width .35s ease}
+.q-xp-hint{font:400 12px/1 var(--f-mono);color:var(--muted)}
+.levels{position:relative;margin-top:22px}
+.lv-path{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.lv-path .base{fill:none;stroke:var(--line-2);stroke-width:5;stroke-linecap:round;stroke-dasharray:.5 14}
+.lv-path .done{fill:none;stroke:var(--red);stroke-width:5;stroke-linecap:round}
+.lv-list{list-style:none;margin:0;padding:0;display:grid;gap:34px;position:relative}
+.level{display:grid;grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr);align-items:center}
+@media (min-width:821px){.level+.level{margin-top:-120px}}
+.lv-node{grid-row:1;grid-column:2;justify-self:center;position:relative;z-index:1;width:86px;height:86px;border-radius:50%;background:var(--surface);border:4px solid var(--ink);display:grid;place-items:center;box-shadow:0 0 0 8px var(--surface);transition:background .2s}
+.lv-num{display:grid;place-items:center;font:800 36px/1 var(--f-display);font-stretch:112%;color:var(--ink)}
+.lv-num .ic{width:34px;height:34px}
+.level:nth-child(odd) .lv-node{transform:translateX(-26px)}
+.level:nth-child(even) .lv-node{transform:translateX(26px)}
+.level:nth-child(odd) .lv-card{grid-column:1;grid-row:1}
+.level:nth-child(even) .lv-card{grid-column:3;grid-row:1}
+.level.is-done .lv-node{background:var(--ink)}
+.level.is-done .lv-num{color:var(--paper)}
+.lv-final .lv-node{background:var(--red);border-color:var(--red)}
+.lv-final .lv-num{color:#fff}
+.lv-here{display:none;position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);white-space:nowrap;align-items:center;gap:5px;font:600 10.5px/1 var(--f-mono);letter-spacing:.05em;color:#fff;background:var(--red);padding:6px 8px;border-radius:6px}
+.lv-here .ic{width:12px;height:12px}
+.lv-here::after{content:"";position:absolute;top:100%;left:50%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--red)}
+.level.is-start .lv-here{display:inline-flex}
+.level.is-start .lv-card{border-color:var(--red);box-shadow:0 0 0 3px var(--red-wash)}
+.lv-card{position:relative;border:1px solid var(--line-2);border-radius:16px;background:var(--surface);padding:18px 18px 16px;display:grid;gap:14px;transition:border-color .2s,box-shadow .2s}
+.lv-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center}
+.lv-ic{width:42px;height:42px;border-radius:11px;background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
+.lv-tag{display:block;font:600 11.5px/1 var(--f-mono);letter-spacing:.06em;color:var(--red-ink);margin-bottom:5px}
+.lv-tag em{font-style:normal;font-weight:500;letter-spacing:0;color:var(--muted);margin-left:8px}
+.lv-res ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.lv-res a{font-size:13.5px;line-height:1.4;color:var(--ink);text-decoration-color:var(--line-2)}
+.lv-res a:hover{color:var(--red-ink);text-decoration-color:currentColor}
+.q-sum{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.q-sum span{font:500 13px/1.3 var(--f-body);color:var(--ink-2);padding:8px 12px;border-radius:10px;background:var(--paper-2)}
+.q-sum b{font:700 15px/1 var(--f-display);font-stretch:106%;color:var(--ink);margin-right:4px}
+.lv-head h4{font-size:20px;line-height:1.15}
+.lv-count{font:600 12px/1 var(--f-mono);color:var(--muted);padding:6px 8px;border-radius:999px;background:var(--paper-2)}
+.level.is-done .lv-count{background:var(--ink);color:var(--paper)}
+.lv-tasks{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.lv-tasks li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start}
+.lv-tasks input{appearance:none;-webkit-appearance:none;margin:1px 0 0;width:20px;height:20px;border:1.6px solid var(--line-2);border-radius:6px;background:var(--surface);display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.lv-tasks input::after{content:"";width:9px;height:5px;border-left:2px solid var(--paper);border-bottom:2px solid var(--paper);transform:translate(0,-1px) rotate(-45deg);opacity:0}
+.lv-tasks input:hover{border-color:var(--ink)}
+.lv-tasks input:checked{background:var(--ink);border-color:var(--ink)}
+.lv-tasks input:checked::after{opacity:1}
+.lv-tasks label{font-size:14.5px;line-height:1.5;color:var(--ink-2);cursor:pointer}
+.lv-tasks input:checked+label{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line-2)}
+.lv-lbl{display:flex;align-items:center;gap:6px;font:600 11px/1 var(--f-mono);letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+.lv-lbl .ic{width:14px;height:14px}
+.lv-boss{border-radius:12px;background:var(--th-bg);padding:12px 14px}
+.lv-boss .lv-lbl{color:var(--th-fg);opacity:.72}
+.lv-boss p{margin:0;font-size:14.5px;line-height:1.5;color:var(--th-fg)}
+.lv-boss a{color:var(--th-fg);text-decoration-color:currentColor;font-weight:600}
+.lv-boss-final{background:var(--red)}
+.lv-boss-final .lv-lbl,.lv-boss-final p,.lv-boss-final a{color:#fff}
+.lv-skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.sk{display:inline-flex;align-items:center;gap:7px;font-size:13px;line-height:1.2;padding:5px 5px 5px 9px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink)}
+.sk b{font:600 10.5px/1 var(--f-mono);padding:3px 5px;border-radius:5px;background:var(--ink);color:var(--paper)}
+.sk-soft b{background:var(--red);color:#fff}
+@media (max-width:820px){
+  .level{grid-template-columns:60px minmax(0,1fr);column-gap:14px;align-items:start}
+  .lv-node,.level:nth-child(odd) .lv-node,.level:nth-child(even) .lv-node{grid-column:1;transform:none;width:56px;height:56px;border-width:3px;box-shadow:0 0 0 6px var(--surface)}
+  .lv-num{font-size:24px}
+  .lv-num .ic{width:24px;height:24px}
+  .level:nth-child(odd) .lv-card,.level:nth-child(even) .lv-card{grid-column:2;grid-row:1}
+  .lv-card{padding:16px 14px 14px}
+  .lv-ic{display:none}
+  .lv-head{grid-template-columns:minmax(0,1fr) auto}
+  .lv-head h4{font-size:19px}
+  .level.is-start .lv-here{display:none}
+  .level.is-start .lv-card::before{content:"YOU ARE HERE";position:absolute;top:-11px;right:14px;font:600 10.5px/1 var(--f-mono);letter-spacing:.05em;color:#fff;background:var(--red);padding:6px 8px;border-radius:6px}
+}
+
+/* jobs */
+.jobs-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 24px}
+.jobs{list-style:none;margin:0 0 20px;padding:0;border-top:1.5px solid var(--ink)}
+.jobs a{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr) minmax(120px,220px) 22px;gap:6px 22px;align-items:baseline;padding:16px 8px 16px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink-2);transition:background .15s,padding .15s}
+.jobs a:hover{background:var(--paper-2);padding-left:10px}
+.job-co{font:700 16px/1.35 var(--f-display);font-stretch:104%;color:var(--ink)}
+.job-title{font-size:15.5px;line-height:1.45;color:var(--ink)}
+.job-title small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.job-loc{font:400 13px/1.45 var(--f-mono);color:var(--muted)}
+.job-go{justify-self:end;width:15px;height:15px;background:var(--ink);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 11.5l7-7M6 4.5h5.5V10' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 11.5l7-7M6 4.5h5.5V10' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;transform:translateY(2px);transition:transform .15s,background-color .15s}
+.jobs a:hover .job-go{transform:translate(2px,0);background:var(--red)}
+@media (max-width:760px){
+  .jobs a{grid-template-columns:minmax(0,1fr) 16px;gap:2px 12px}
+  .job-co,.job-title,.job-loc{grid-column:1}
+  .job-go{grid-column:2;grid-row:1}
+}
+
+/* sources */
+.src-group{margin:40px 0 8px}
+.src-group>h3{margin-top:0}
+.srcs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;border-top:1.5px solid var(--ink)}
+.srcs li{border-bottom:1px solid var(--line);padding:16px 0}
+.srcs a{font:600 16px/1.4 var(--f-body);color:var(--ink);text-decoration:none}
+.srcs a:hover{color:var(--red-ink);text-decoration:underline}
+.srcs .by{display:block;font:400 13px/1.5 var(--f-mono);color:var(--muted);margin-top:4px}
+.srcs .why{display:block;font-size:14.5px;line-height:1.55;color:var(--ink-2);margin-top:6px}
+@media (max-width:760px){.srcs{grid-template-columns:1fr}}
+
+/* footer, fab */
+.foot{max-width:1340px;margin:clamp(72px,9vw,120px) auto 0;padding:28px clamp(16px,5vw,96px) calc(40px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);font:500 13px/1.4 var(--f-mono);color:var(--muted)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:none;align-items:center;gap:8px;background:var(--ink);color:var(--paper);text-decoration:none;font:600 13px/1 var(--f-body);padding:12px 16px 12px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.fab svg{width:14px;height:14px}
+.fab:hover{color:var(--paper);background:var(--red)}
+@media (max-width:1179px){#fde.past-cover .fab{display:inline-flex}}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{
+  .progress,.rail,.fab{display:none!important}
+  .layout{display:block}
+  .cover{min-height:100vh;break-after:page}
+  .toc{break-after:page}
+  .sec{break-before:page}
+  .fig,.inc,.tbl-wrap,pre,.record,.stage,.tile{break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div id="fde" lang="en">
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<!-- COVER -->
+<header class="cover" id="kapak">
+  <div class="cover-in">
+    <div class="cover-title">
+    <div class="cover-top">
+      <svg class="yt" viewBox="0 0 28.57 20" role="img" aria-label="YouTube">
+        <path fill="#FF0033" d="M27.97 3.12A3.58 3.58 0 0 0 25.45.6C23.22 0 14.29 0 14.29 0S5.35 0 3.12.6A3.58 3.58 0 0 0 .6 3.12C0 5.35 0 10 0 10s0 4.65.6 6.88a3.58 3.58 0 0 0 2.52 2.52C5.35 20 14.29 20 14.29 20s8.93 0 11.16-.6a3.58 3.58 0 0 0 2.52-2.52c.6-2.23.6-6.88.6-6.88s0-4.65-.6-6.88Z"/>
+        <path fill="#FFFFFF" d="M11.43 14.29 18.85 10l-7.42-4.29v8.58Z"/>
+      </svg>
+      <p class="cover-name">Selman Ay</p>
+      <a class="lang" href="../" hreflang="tr" lang="tr">Türkçe</a>
+      </div>
+      <h1><span class="fde">FDE</span><span class="q">What is it<span>?</span> How do you become one<span>?</span></span></h1>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENTS -->
+<section class="toc" id="icindekiler" aria-labelledby="h-toc">
+  <div class="toc-in">
+    <h2 id="h-toc">Contents</h2>
+    <ol class="toc-list">
+      <li class="toc-item">
+        <span class="toc-no">01</span>
+        <div>
+          <a class="toc-main" href="#fde-nedir">What is an FDE?</a>
+          <ul class="toc-subs">
+            <li><a href="#tanim"><span>1.1</span>Definition</a></li>
+            <li><a href="#kokeni"><span>1.2</span>Origins: Palantir</a></li>
+            <li><a href="#yapay-zeka"><span>1.3</span>The AI surge</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-no">02</span>
+        <div>
+          <a class="toc-main" href="#senaryo">Example scenario: Insurance claim file review</a>
+          <ul class="toc-subs">
+            <li><a href="#problem"><span>2.1</span>The problem</a></li>
+            <li><a href="#yolculuk"><span>2.2</span>The FDE’s 12 weeks</a></li>
+            <li><a href="#mimari"><span>2.3</span>Architecture</a></li>
+            <li><a href="#sorunlar"><span>2.4</span>Problems in the field</a></li>
+            <li><a href="#sonuc"><span>2.5</span>Results</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-no">03</span>
+        <div>
+          <a class="toc-main" href="#yol-haritasi">FDE roadmap</a>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-no">04</span>
+        <div><a class="toc-main" href="#ilanlar">FDE job postings</a></div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-no">05</span>
+        <div><a class="toc-main" href="#kaynaklar">Resources</a></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="layout">
+<nav class="rail" aria-label="Sections">
+  <a class="rail-top" href="#icindekiler">CONTENTS</a>
+  <ol>
+    <li class="rail-sec">
+      <a class="rl" href="#fde-nedir"><span class="rn">01</span>What is an FDE?</a>
+      <ol class="sub">
+        <li><a class="rl" href="#tanim">Definition</a></li>
+        <li><a class="rl" href="#kokeni">Origins: Palantir</a></li>
+        <li><a class="rl" href="#yapay-zeka">The AI surge</a></li>
+      </ol>
+    </li>
+    <li class="rail-sec">
+      <a class="rl" href="#senaryo"><span class="rn">02</span>Example scenario</a>
+      <ol class="sub">
+        <li><a class="rl" href="#problem">The problem</a></li>
+        <li><a class="rl" href="#yolculuk">The FDE’s 12 weeks</a></li>
+        <li><a class="rl" href="#mimari">Architecture</a></li>
+        <li><a class="rl" href="#sorunlar">Problems in the field</a></li>
+        <li><a class="rl" href="#sonuc">Results</a></li>
+      </ol>
+    </li>
+    <li class="rail-sec">
+      <a class="rl" href="#yol-haritasi"><span class="rn">03</span>FDE roadmap</a>
+    </li>
+    <li class="rail-sec"><a class="rl" href="#ilanlar"><span class="rn">04</span>FDE job postings</a></li>
+    <li class="rail-sec"><a class="rl" href="#kaynaklar"><span class="rn">05</span>Resources</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ============ 01 ============ -->
+<section class="sec" id="fde-nedir" aria-labelledby="h-01">
+  <header class="sec-head"><span class="sec-no">01</span><h2 id="h-01">What is an FDE?</h2></header>
+
+  <h3 id="tanim"><span class="h-no">1.1</span>Definition</h3>
+  <p class="lead">A Forward Deployed Engineer (FDE) is the engineer who makes a software company’s product work in the customer’s real environment. They get access to the customer’s data and systems, write the code that goes to production, measure the outcome against the customer’s business metric and carry what they learn in the field back into the product.</p>
+  <p class="note">The name comes from military terminology. A <i>forward deployed</i> unit is one stationed ahead, at the front line.</p>
+
+  <div class="traits">
+    <div class="trait"><h4>Writes production code</h4><p>The integration, workflow and evaluation code they write runs in the customer’s production environment. Monitoring, maintenance and incident response are part of the job too.</p></div>
+    <div class="trait"><h4>Works alongside the customer</h4><p>They watch users do their work, personally chase data access and security approvals, and sit in the same meetings as the customer’s teams. Much of their time can be spent at the customer’s office.</p></div>
+    <div class="trait"><h4>Owns the outcome</h4><p>Success is a business metric measured at the customer: processing time, error rate, cost. The metric is agreed in writing at the start of the project.</p></div>
+    <div class="trait"><h4>Changes the product</h4><p>They take solutions that recur across customers to the product team. Code written for one customer becomes a product component that ships ready for the next.</p></div>
+  </div>
+
+  <figure class="fig fig-wide">
+    <div class="frame">
+      <svg class="svg w-760" viewBox="0 36 1000 300" role="img" aria-label="Recurring code from the Customer A project moves into the product. In the Customer B project the same code arrives as a ready component and deployment is shorter.">
+        <defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="currentColor"/></marker></defs>
+        <text class="mono t-12 t-muted ls" x="0" y="78">CUSTOMER A</text>
+        <text class="mono t-12 t-muted ls" x="0" y="178">PRODUCT</text>
+        <text class="mono t-12 t-muted ls" x="0" y="280">CUSTOMER B</text>
+
+        <rect class="seg" x="150" y="56" width="110" height="36" rx="4"/>
+        <text class="t-14" x="205" y="78.5" text-anchor="middle">Discovery</text>
+        <rect class="seg" x="263" y="56" width="150" height="36" rx="4"/>
+        <text class="t-14" x="338" y="78.5" text-anchor="middle">Access</text>
+        <rect class="seg-2" x="416" y="56" width="170" height="36" rx="4"/>
+        <text class="t-14" x="501" y="78.5" text-anchor="middle">Build</text>
+        <rect class="seg-red" x="589" y="56" width="130" height="36" rx="4"/>
+        <text class="t-14 t-white t-b" x="654" y="78.5" text-anchor="middle">recurring code</text>
+        <rect class="seg" x="722" y="56" width="120" height="36" rx="4"/>
+        <text class="t-14" x="782" y="78.5" text-anchor="middle">Live</text>
+
+        <line class="ln" x1="654" y1="96" x2="654" y2="146" marker-end="url(#ah1)"/>
+        <text class="mono t-12 t-muted" x="666" y="125">moves into product</text>
+
+        <rect class="box-strong" x="416" y="150" width="426" height="48" rx="8"/>
+        <text class="t-14" x="629" y="179" text-anchor="middle">Product component: adapter, validator, eval gate</text>
+
+        <line class="ln" x1="512" y1="202" x2="512" y2="252" marker-end="url(#ah1)"/>
+        <text class="mono t-12 t-muted" x="500" y="231" text-anchor="end">ships ready</text>
+
+        <rect class="seg" x="150" y="258" width="70" height="36" rx="4"/>
+        <text class="t-14" x="185" y="280.5" text-anchor="middle">Discovery</text>
+        <rect class="seg" x="223" y="258" width="100" height="36" rx="4"/>
+        <text class="t-14" x="273" y="280.5" text-anchor="middle">Access</text>
+        <rect class="seg-2" x="326" y="258" width="170" height="36" rx="4"/>
+        <text class="t-14" x="411" y="280.5" text-anchor="middle">Build</text>
+        <rect class="seg-ink" x="499" y="258" width="26" height="36" rx="4"/>
+        <rect class="seg" x="528" y="258" width="80" height="36" rx="4"/>
+        <text class="t-14" x="568" y="280.5" text-anchor="middle">Live</text>
+        <rect class="ghost" x="611.5" y="258.5" width="230" height="35" rx="4"/>
+        <text class="t-14 t-muted" x="726" y="280.5" text-anchor="middle">time saved</text>
+      <line class="ln" x1="150" y1="318" x2="838" y2="318" marker-end="url(#ah1)"/>
+        <text class="mono t-12 t-muted" x="846" y="322">time</text>
+      </svg>
+    </div>
+    <figcaption><span class="fno">Figure 1</span>How the FDE model works. Code written in the field that recurs across customers (red) moves into the product; for the next customer it arrives as a ready component (black). Lengths are illustrative.</figcaption>
+  </figure>
+
+  <h3 id="kokeni"><span class="h-no">1.2</span>Origins: Palantir</h3>
+  <p>The role emerged at Palantir in the early 2010s, where it was known internally as <strong>Delta</strong> (<a href="https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers" target="_blank" rel="noopener noreferrer">The Pragmatic Engineer</a>). Palantir still describes itself on its <a href="https://www.palantir.com/careers/" target="_blank" rel="noopener noreferrer">careers page</a> as built on three roles:</p>
+  <div class="roles">
+    <div class="role"><span class="role-name">Dev</span><span class="role-title">Software Engineer</span><p>Builds core products such as Gotham and Foundry. In Palantir’s words: one capability, many customers.</p></div>
+    <div class="role role-hot"><span class="role-name">Delta</span><span class="role-title">Forward Deployed Software Engineer</span><p>Deploys to a single customer and makes the product work on that customer’s data and problem. In Palantir’s words: one customer, many capabilities.</p></div>
+    <div class="role"><span class="role-name">Echo</span><span class="role-title">Deployment Strategist</span><p>Owns the customer’s business problem, the stakeholders and product adoption.</p></div>
+  </div>
+  <p>The distinction between “one capability, many customers” and “one customer, many capabilities” comes from Palantir’s <a href="https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87" target="_blank" rel="noopener noreferrer">Dev versus Delta</a> post. According to <a href="https://nabeelqu.substack.com/p/reflections-on-palantir" target="_blank" rel="noopener noreferrer">Nabeel Qureshi’s essay on Palantir</a>, FDEs spent 3 to 4 days a week at the customer’s office, and product engineers turned what they built in the field into product. The first version of Foundry was largely shaped this way. According to The Pragmatic Engineer, Palantir had more FDEs than “regular” software engineers until around 2016.</p>
+  <p>Qureshi describes the model as a rare case of a services company turning into a product company, and puts numbers on it: Palantir’s 2023 gross margin was 80%, against Accenture’s 32% the same year.</p>
+
+  <h3 id="yapay-zeka"><span class="h-no">1.3</span>The AI surge</h3>
+  <p>For an LLM-based product to create value at an enterprise customer, four kinds of work are needed, and all four are specific to that customer:</p>
+  <ul class="list">
+    <li><strong>Integration.</strong> Giving the model access to data in the customer’s legacy systems: SOAP services, document archives, mainframes.</li>
+    <li><strong>Evaluation.</strong> Answering “Does it work correctly?” with the customer’s data and labels from the customer’s own experts.</li>
+    <li><strong>Security and compliance.</strong> Data residency, authorization, audit trail, KVKK (Türkiye’s personal data protection law) or GDPR.</li>
+    <li><strong>Workflow.</strong> Designing whose screen the model output lands on, and how it feeds into which decision.</li>
+  </ul>
+  <p>According to Colin Jarvis, head of FDE at OpenAI, in roughly 80% of enterprise projects the problem is deployment (<a href="https://thenextweb.com/news/openai-colin-jarvis-enterprise-ai-deployment-fde-humanx" target="_blank" rel="noopener noreferrer">The Next Web</a>). Job postings describe the work the same way. <a href="https://jobs.ashbyhq.com/openai/967f94aa-1706-4dba-ac89-bfbc2c38b688" target="_blank" rel="noopener noreferrer">OpenAI’s posting</a> defines the FDE as the engineer who leads end-to-end production deployments of frontier models with its most strategic customers. <a href="https://job-boards.greenhouse.io/anthropic/jobs/5302966008" target="_blank" rel="noopener noreferrer">Anthropic’s</a> lists delivering MCP servers, sub-agents and agent skills for use in the customer’s production workflows.</p>
+  <p>a16z’s <a href="https://a16z.com/services-led-growth/" target="_blank" rel="noopener noreferrer">June 2025 essay</a> reads the model as a deliberate trade: AI startups accept the lower gross margin that FDEs bring as the price of embedding in the customer’s business systems. The same firm’s <a href="https://a16z.com/the-palantirization-of-everything/" target="_blank" rel="noopener noreferrer">January 2026 essay</a> warns that most companies copying the model risk turning into expensive services firms.</p>
+
+  <div class="tiles t3" role="list" aria-label="FDE demand">
+    <div class="tile" role="listitem"><div class="tile-val">800%</div><div class="tile-label">Growth in FDE job postings, January to September 2025</div><a class="tile-src" href="https://www.ft.com/content/91002071-7874-4cb7-9245-08ca0571c408" target="_blank" rel="noopener noreferrer">Indeed data · Financial Times</a></div>
+    <div class="tile" role="listitem"><div class="tile-val">1,000%+</div><div class="tile-label">Growth in FDE job postings, January to August 2026</div><a class="tile-src" href="https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/" target="_blank" rel="noopener noreferrer">Lightcast data · Fortune</a></div>
+    <div class="tile" role="listitem"><div class="tile-val">$188K</div><div class="tile-label">Median advertised FDE salary in the US, against about $145K for software engineers.</div><a class="tile-src" href="https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/" target="_blank" rel="noopener noreferrer">Lightcast data · Fortune</a></div>
+  </div>
+
+  <ol class="tl" aria-label="FDE teams in 2025 and 2026">
+    <li class="hot"><span class="when">January 2025</span><span class="what"><b>OpenAI</b>Colin Jarvis took charge of the newly formed FDE team, which started with 2 FDEs.<a href="https://x.com/colintjarvis/status/1879532522956329135" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li><span class="when">April 2025</span><span class="what"><b>Salesforce</b>Set up its FDE team, then announced a target of 1,000 FDEs.<a href="https://www.salesforce.com/ap/blog/forward-deployed-engineer/" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li><span class="when">May 2026</span><span class="what"><b>Anthropic</b>Launched an enterprise AI services company with Blackstone, Hellman &amp; Friedman and Goldman Sachs.<a href="https://www.anthropic.com/news/enterprise-ai-services-company" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li class="hot"><span class="when">May 2026</span><span class="what"><b>OpenAI</b>Launched the OpenAI Deployment Company and acquired Tomoro, adding roughly 150 FDEs and deployment specialists.<a href="https://openai.com/index/openai-launches-the-deployment-company/" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li><span class="when">May 2026</span><span class="what"><b>Google Cloud</b>59 open FDE roles; CEO Thomas Kurian announced further FDE hiring.<a href="https://www.ciodive.com/news/google-cloud-forward-deployed-engineering-jobs/820233/" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li><span class="when">June 2026</span><span class="what"><b>AWS</b>Created a $1 billion Forward Deployed Engineering organization.<a href="https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li><span class="when">July 2026</span><span class="what"><b>Microsoft</b>Announced the $2.5 billion Frontier Company: more than 6,000 people, mostly drawn from existing engineering and forward-deployed teams.<a href="https://www.geekwire.com/2026/microsoft-announces-2-5b-frontier-company-to-embed-ai-engineers-inside-customers/" target="_blank" rel="noopener noreferrer">source</a></span></li>
+    <li><span class="when">July 2026</span><span class="what"><b>OpenAI</b>Agreed to acquire Northslope: hundreds more FDEs.<a href="https://deploy.co/news/the-openai-deployment-company-to-acquire-northslope" target="_blank" rel="noopener noreferrer">source</a></span></li>
+  </ol>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="sec" id="senaryo" aria-labelledby="h-02">
+  <header class="sec-head">
+    <span class="sec-no">02</span>
+    <h2 id="h-02" class="h2-long">Example scenario: Insurance claim file review</h2>
+    <div class="sec-meta"><span class="chip">Fictional customer</span><span class="chip">12 weeks</span><span class="chip">Motor insurance</span></div>
+  </header>
+
+  <h3 id="problem"><span class="h-no">2.1</span>The problem</h3>
+  <p>A mid-sized Turkish insurer has a claims handler check every file before it pays out on a kasko (motor own-damage insurance) claim. The handler opens the documents in the file one by one and cross-checks them: does the plate on the accident report match the vehicle registration, did the accident happen within the policy period, does the invoice amount add up. The FDE comes to this insurer for 12 weeks from a software company that sells a document processing and AI platform.</p>
+  <ol class="flow" aria-label="Kasko claims process">
+    <li><span>Claim notification</span></li>
+    <li><span>Document collection</span></li>
+    <li><span>Loss adjuster inspection</span></li>
+    <li class="hot"><span><b>Handler review</b> · 34 min</span></li>
+    <li><span>Payment</span></li>
+  </ol>
+  <div class="tiles t3" role="list" aria-label="Baseline measurement">
+    <div class="tile" role="listitem"><div class="tile-val">34<small>min</small></div><div class="tile-label">Document check per file, median</div></div>
+    <div class="tile" role="listitem"><div class="tile-val">37%</div><div class="tile-label">Files sent back for missing or inconsistent documents</div></div>
+    <div class="tile" role="listitem"><div class="tile-val">6</div><div class="tile-label">Separate systems a handler opens for one file</div></div>
+  </div>
+
+  <h3 id="yolculuk"><span class="h-no">2.2</span>The FDE’s 12 weeks</h3>
+  <figure class="fig">
+    <ol class="journey">
+      <li><span class="j-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span><span class="j-when">Weeks 1–2</span><h4>Discovery</h4><p>Sat with handlers and watched them work through 46 files. Of the 34 minutes, 31 go to reading and comparing documents.</p></li>
+      <li class="j-hot"><span class="j-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="j-when">Week 2</span><h4>Scope</h4><p>The request was “let the AI approve claims.” The decision: a ready review package for the handler, with approval and rejection left to a person.</p></li>
+      <li><span class="j-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></span><span class="j-when">Weeks 2–4</span><h4>Access and security</h4><p>Data never leaves the insurer’s data center, and the model runs there too. Approvals took 2.5 weeks.</p></li>
+      <li><span class="j-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg></span><span class="j-when">Weeks 3–8</span><h4>Build</h4><p>Document reading, 18 check rules, a policy check and the handler screen.</p></li>
+      <li><span class="j-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span><span class="j-when">Weeks 3–10</span><h4>Measurement</h4><p>A test set of 600 past files. Every change is measured against it.</p></li>
+      <li><span class="j-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg></span><span class="j-when">Weeks 7–12</span><h4>Go-live</h4><p>First in the background, invisible to handlers (shadow mode). Then 1 team, then 4 teams.</p></li>
+    </ol>
+    <div class="j-loop"><span class="j-ic sm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><p><strong>Feeding back into the product.</strong> 7 components written in the field moved into the platform. At the next insurance customer, deployment was done in 6 weeks.</p></div>
+    <figcaption><span class="fno">Figure 2</span>Project flow. The red step is the decision that set the project’s direction: the system does not decide, it speeds up the handler.</figcaption>
+  </figure>
+
+  <h3 id="mimari"><span class="h-no">2.3</span>Architecture</h3>
+  <figure class="fig fig-wide">
+    <div class="arch" role="img" aria-label="High-level architecture: claim documents, the policy system and the claims system feed into the AI layer. The layer reads the documents, checks them against 18 rules and presents them to the handler as a package. The decision rests with the handler. Data stays inside the insurer, every step is logged, and the system is measured against a 600-file test set.">
+      <div class="arch-col">
+        <span class="arch-lbl">INSURER’S SYSTEMS</span>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span><div><b>Claim documents</b><small>Accident report, vehicle registration, driving licence, invoice</small></div></div>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span><div><b>Policy system</b><small>Coverages and policy dates</small></div></div>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg></span><div><b>Claims system</b><small>Files and handler assignment</small></div></div>
+      </div>
+      <div class="arch-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="arch-col arch-core">
+        <span class="arch-lbl">AI LAYER</span>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></svg></span><div><b>1 · Read</b><small>Extracts fields such as plate, date and amount from each document</small></div></div>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg></span><div><b>2 · Check</b><small>18 rules: are the documents consistent with each other and with the policy?</small></div></div>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="m16 17 2 2 4-4"/><path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753"/><path d="M3.29 7 12 12l8.71-5"/><path d="m7.5 4.27 8.997 5.148"/></svg></span><div><b>3 · Package</b><small>Brings findings and missing documents together on one screen</small></div></div>
+        <span class="arch-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>The model runs in the insurer’s data center</span>
+      </div>
+      <div class="arch-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="arch-col">
+        <span class="arch-lbl">HANDLER</span>
+        <div class="node"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 11 2 2 4-4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><div><b>Handler screen</b><small>Every finding is shown on the document itself</small></div></div>
+        <div class="node node-red"><span class="node-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"/><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"/><path d="M7 21h10"/></svg></span><div><b>Decision</b><small>Approval or rejection always rests with the handler</small></div></div>
+      </div>
+      <div class="arch-band">
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Data stays inside the insurer</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>Every model call is logged</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>Measured against a 600-file test set</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>Handler corrections flow back into the test set</span>
+      </div>
+    </div>
+    <figcaption><span class="fno">Figure 3</span>High-level architecture. Documents from the insurer’s systems are read and checked in the AI layer; the handler sees the findings on one screen and makes the decision.</figcaption>
+  </figure>
+
+  <h3 id="sorunlar"><span class="h-no">2.4</span>Problems in the field</h3>
+  <div class="issues">
+    <article class="issue"><span class="issue-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span><h4>Two tasks for the same file</h4><dl><div><dt>PROBLEM</dt><dd>Long-running jobs on large PDFs led the queue to hand the same message to a second worker; the handler saw two tasks for the same file.</dd></div><div><dt>FIX</dt><dd>A unique key per task (idempotency). The same job cannot open a second task.</dd></div></dl></article>
+    <article class="issue"><span class="issue-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></svg></span><h4>Plate and ID number misreads</h4><dl><div><dt>PROBLEM</dt><dd>On handwritten accident reports and poor scans, 0/O and 1/I get mixed up.</dd></div><div><dt>FIX</dt><dd>Plate format validation and a checksum on the TC kimlik no (Turkish national ID number). Any field that fails is flagged to the handler.</dd></div></dl></article>
+    <article class="issue"><span class="issue-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg></span><h4>Monday morning slowdown</h4><dl><div><dt>PROBLEM</dt><dd>The legacy policy service is capped at 10 requests per second. Paperwork that piled up over the weekend pushed the queue to 3,100 jobs.</dd></div><div><dt>FIX</dt><dd>One call per file, caching and rate limiting. The wait dropped from 41 minutes to 3.</dd></div></dl></article>
+    <article class="issue"><span class="issue-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span><h4>Citations to clauses that are not in the policy</h4><dl><div><dt>PROBLEM</dt><dd>While writing its rationale, the model invented clause numbers that do not exist in the policy.</dd></div><div><dt>FIX</dt><dd>The model may only quote verbatim from the clauses it is given; every quote is looked up in the policy and verified.</dd></div></dl></article>
+    <article class="issue"><span class="issue-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="m14 13-4 4"/><path d="m10 13 4 4"/></svg></span><h4>A model update broke dates</h4><dl><div><dt>PROBLEM</dt><dd>A new model version returned some dates as month/day instead of day/month.</dd></div><div><dt>FIX</dt><dd>The model version was pinned. No change goes live without passing the test set.</dd></div></dl></article>
+    <article class="issue"><span class="issue-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span><h4>Several documents in one PDF</h4><dl><div><dt>PROBLEM</dt><dd>Insurance agents upload all the paperwork for a file as a single PDF.</dd></div><div><dt>FIX</dt><dd>Document type is detected page by page and the PDF is split automatically.</dd></div></dl></article>
+  </div>
+
+  <h3 id="sonuc"><span class="h-no">2.5</span>Results</h3>
+  <div class="tiles" role="list" aria-label="Results at week 12">
+    <div class="tile" role="listitem"><div class="tile-before">Before <s>34 min</s></div><div class="tile-val">13<small>min</small></div><div class="tile-label">Document check time, median</div><div class="tile-meta">Target under 15 min · met</div></div>
+    <div class="tile" role="listitem"><div class="tile-before">Before <s>37%</s></div><div class="tile-val">24%</div><div class="tile-label">Files sent back for missing documents</div><div class="tile-meta">Target 30% reduction · down 35%</div></div>
+    <div class="tile" role="listitem"><div class="tile-before">Before <s>11 days</s></div><div class="tile-val">8<small>days</small></div><div class="tile-label">Claim notification to payment, median</div><div class="tile-meta">Side effect</div></div>
+    <div class="tile" role="listitem"><div class="tile-before">Target &lt; 1%</div><div class="tile-val">0.6%</div><div class="tile-label">Share of files marked “no issues” by the system in which the handler still found an issue</div><div class="tile-meta">Target met</div></div>
+  </div>
+  <p>On the test set, accuracy for plate, chassis number (VIN), accident date and invoice total is 99.2%. The system recommends neither approval nor rejection for any file; every decision rests with the handler.</p>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="sec" id="yol-haritasi" aria-labelledby="h-03">
+  <header class="sec-head">
+    <span class="sec-no">03</span>
+    <h2 id="h-03">FDE roadmap</h2>
+    <div class="sec-meta"><span class="chip">Analysis of 20 postings</span><span class="chip">Technical and field skills</span></div>
+  </header>
+  <p>The roadmap is built on the full text of the 20 current postings in section 04. For each skill, the count is the number of postings that list it as a responsibility or a requirement; company boilerplate was left out of the count.</p>
+
+  <figure class="fig">
+    <div class="quest" id="quest">
+      <div class="q-start">
+        <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Where should you start?</h4>
+        <div class="q-personas" role="group" aria-label="Starting point">
+          <button type="button" class="q-persona" id="p-yeni" data-start="1" aria-pressed="false">I’m just starting out <span>LVL 1</span></button>
+          <button type="button" class="q-persona" id="p-kod" data-start="2" aria-pressed="false">I write code but haven’t shipped to production <span>LVL 2</span></button>
+          <button type="button" class="q-persona" id="p-veri" data-start="3" aria-pressed="false">I work in data science or ML <span>LVL 3</span></button>
+          <button type="button" class="q-persona" id="p-backend" data-start="5" aria-pressed="false">I build backend systems in production <span>LVL 5</span></button>
+          <button type="button" class="q-persona" id="p-llm" data-start="8" aria-pressed="false">I build products with LLMs <span>LVL 8</span></button>
+          <button type="button" class="q-persona" id="p-danisman" data-start="1" aria-pressed="false">I work with customers, but my coding is weak <span>LVL 1</span></button>
+        </div>
+      </div>
+      <div class="q-sum">
+        <span><b>10</b> levels + final</span>
+        <span><b>33</b> tasks</span>
+        <span><b>10–15 months</b> from scratch, at ~10 hours a week</span>
+      </div>
+      <div class="q-xp">
+        <span class="q-xp-lbl"><b id="xp-done">0</b> / 33 tasks</span>
+        <span class="q-xp-bar" aria-hidden="true"><span id="xp-bar"></span></span>
+        <span class="q-xp-hint">Progress is saved in this browser</span>
+      </div>
+
+      <div class="levels" id="levels">
+        <svg class="lv-path" aria-hidden="true"><path class="base" d=""/><path class="done" d=""/></svg>
+        <ol class="lv-list">
+        <li class="level" data-level="1">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">1</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></span><div><span class="lv-tag">LVL 1<em>8–12 weeks</em></span><h4>Writes code</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q1a"><label for="q1a">Finish the Python fundamentals: functions, classes, error handling, virtual environments.</label></li>
+              <li><input type="checkbox" id="q1b"><label for="q1b">Write an API with three endpoints in FastAPI; validate inputs with Pydantic.</label></li>
+              <li><input type="checkbox" id="q1c"><label for="q1c">Write unit tests with pytest; manage the project in Git and push it to GitHub.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Build a small tool that solves a real problem for someone you know, and get them using it.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">Python <b>15</b></li><li class="sk">TypeScript / JavaScript <b>10</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://fastapi.tiangolo.com/tutorial/" target="_blank" rel="noopener noreferrer">FastAPI Tutorial</a></li><li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer">Python Tutorial</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="2">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">2</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span><div><span class="lv-tag">LVL 2<em>4–6 weeks</em></span><h4>Speaks data</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q2a"><label for="q2a">Install PostgreSQL; write 20 queries using JOIN, GROUP BY and window functions.</label></li>
+              <li><input type="checkbox" id="q2b"><label for="q2b">Design a data model: tables, relationships, indexes.</label></li>
+              <li><input type="checkbox" id="q2c"><label for="q2c">Clean up messy data spread across PDF, Excel and CSV files and load it into that model.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Write a short report that answers a business question from a real dataset, and present it to someone.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">SQL and data <b>7</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://sqlbolt.com/" target="_blank" rel="noopener noreferrer">SQLBolt</a></li><li><a href="https://www.postgresql.org/docs/current/tutorial.html" target="_blank" rel="noopener noreferrer">PostgreSQL Tutorial</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="3">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">3</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg></span><div><span class="lv-tag">LVL 3<em>4–6 weeks</em></span><h4>Ships to production</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q3a"><label for="q3a">Package the application with Docker.</label></li>
+              <li><input type="checkbox" id="q3b"><label for="q3b">Deploy to a cloud (AWS, GCP or Azure); set up a domain and HTTPS.</label></li>
+              <li><input type="checkbox" id="q3c"><label for="q3c">Set up a GitHub Actions pipeline that runs the tests and deploys on every push.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Keep your app running without interruption for a week, with a real person using it.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">Cloud and infrastructure <b>9</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener noreferrer">Docker: Get started</a></li><li><a href="https://docs.github.com/en/actions/get-started/quickstart" target="_blank" rel="noopener noreferrer">GitHub Actions Quickstart</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="4">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">4</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><div><span class="lv-tag">LVL 4<em>3–4 weeks</em></span><h4>Holds the pager</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q4a"><label for="q4a">Add logs, metrics and error alerts (OpenTelemetry or Sentry).</label></li>
+              <li><input type="checkbox" id="q4b"><label for="q4b">Implement authentication, secrets management and the principle of least privilege.</label></li>
+              <li><input type="checkbox" id="q4c"><label for="q4c">Review your application against the OWASP Top 10.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Track down a production bug from the logs, fix it and write a short incident report.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">Production and monitoring <b>18</b></li><li class="sk">Security and compliance <b>6</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://sre.google/sre-book/table-of-contents/" target="_blank" rel="noopener noreferrer">Google SRE book</a></li><li><a href="https://owasp.org/projects/top-ten" target="_blank" rel="noopener noreferrer">OWASP Top 10</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="5">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">5</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"/><path d="m2 22 3-3"/><path d="M7.5 13.5 10 11"/><path d="M10.5 16.5 13 14"/><path d="m18 3-4 4h6l-4 4"/></svg></span><div><span class="lv-tag">LVL 5<em>4–6 weeks</em></span><h4>Connects systems</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q5a"><label for="q5a">Connect to a real SaaS API with OAuth; handle pagination and rate limits.</label></li>
+              <li><input type="checkbox" id="q5b"><label for="q5b">Build an integration driven by webhooks or a queue that does not break when the same message arrives twice.</label></li>
+              <li><input type="checkbox" id="q5c"><label for="q5c">Write an adapter for a legacy system (SOAP or file transfer).</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Get two systems that know nothing about each other talking. Example: an automation that reads invoices arriving by email and records them in a spreadsheet.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">API and system integration <b>15</b></li><li class="sk sk-soft">Working with ambiguity <b>9</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://stripe.com/blog/idempotency" target="_blank" rel="noopener noreferrer">Stripe: Idempotency</a></li><li><a href="https://dataintensive.net/" target="_blank" rel="noopener noreferrer">Designing Data-Intensive Applications</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="6">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">6</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg></span><div><span class="lv-tag">LVL 6<em>4–6 weeks</em></span><h4>Builds with LLMs</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q6a"><label for="q6a">Use an LLM API to extract fields from a document that conform to a JSON Schema.</label></li>
+              <li><input type="checkbox" id="q6b"><label for="q6b">Version your prompts and context; compare outputs on the same inputs.</label></li>
+              <li><input type="checkbox" id="q6c"><label for="q6c">Build a RAG application over your own documents that cites its sources.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Build a Q&amp;A tool that works on a business’s real documents, with every answer showing its source.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">LLM applications <b>15</b></li><li class="sk">RAG <b>8</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Claude: Prompt engineering</a></li><li><a href="https://developers.openai.com/cookbook" target="_blank" rel="noopener noreferrer">OpenAI Cookbook</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="7">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">7</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><div><span class="lv-tag">LVL 7<em>3–5 weeks</em></span><h4>Builds agents</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q7a"><label for="q7a">Write an agent that calls your own API through tool calling.</label></li>
+              <li><input type="checkbox" id="q7b"><label for="q7b">Write an MCP server and connect it to a client.</label></li>
+              <li><input type="checkbox" id="q7c"><label for="q7c">Put limits on the agent: step count, actions that need approval, fallback on errors.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Demo an agent that handles a multi-step job from start to finish: read the request, record it in the system, send a summary.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">Agents <b>14</b></li><li class="sk sk-soft">Rapid prototyping <b>11</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">Building effective agents</a></li><li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="8">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">8</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span><div><span class="lv-tag">LVL 8<em>3–4 weeks</em></span><h4>Measures</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q8a"><label for="q8a">Build a 50-example test set (golden set) and label the correct answers.</label></li>
+              <li><input type="checkbox" id="q8b"><label for="q8b">Write an eval script that measures accuracy automatically; use LLM-as-judge where needed.</label></li>
+              <li><input type="checkbox" id="q8c"><label for="q8c">Wire the eval into CI: if the score drops, the deploy stops.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Show the impact of a prompt or model change in numbers: accuracy, cost, latency.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk">Eval <b>10</b></li><li class="sk">ML and fine-tuning <b>5</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://hamel.dev/blog/posts/evals/" target="_blank" rel="noopener noreferrer">Your AI Product Needs Evals</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="9">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">9</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span><div><span class="lv-tag">LVL 9<em>4–8 weeks</em></span><h4>Goes into the field</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q9a"><label for="q9a">Shadow a process in a business or team for a day; note each step and how long it takes.</label></li>
+              <li><input type="checkbox" id="q9b"><label for="q9b">Write a one-page scope: problem, success metric, out of scope, risks.</label></li>
+              <li><input type="checkbox" id="q9c"><label for="q9c">Give a 10-minute demo to a non-technical person; note their objections.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Walk a manager through the problem, the solution and the expected impact in 15 minutes, and get sign-off.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk sk-soft">Working directly with customers <b>16</b></li><li class="sk sk-soft">Discovery and scoping <b>12</b></li><li class="sk sk-soft">Communication and presenting <b>10</b></li><li class="sk sk-soft">Stakeholders and executives <b>8</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://www.momtestbook.com/" target="_blank" rel="noopener noreferrer">The Mom Test</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level" data-level="10">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num">10</span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="m16 17 2 2 4-4"/><path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753"/><path d="M3.29 7 12 12l8.71-5"/><path d="m7.5 4.27 8.997 5.148"/></svg></span><div><span class="lv-tag">LVL 10<em>6–10 weeks</em></span><h4>Delivers end to end</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q10a"><label for="q10a">Take a solution for a real user from discovery to production on your own.</label></li>
+              <li><input type="checkbox" id="q10b"><label for="q10b">Measure at the start, measure again at the end; state the difference in numbers.</label></li>
+              <li><input type="checkbox" id="q10c"><label for="q10c">Write a runbook so someone else can take over, and give users a short training session.</label></li>
+            </ul>
+            <div class="lv-boss"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 19 6-6"/><path d="M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5"/><path d="m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="m5 14 4 4"/><path d="m5 21-2-2"/><path d="M7.5 16.5 4 20"/></svg>LEVEL UP</span><p>Turn what you learned in the field into product: make a recurring job into a reusable component and document it.</p></div>
+            <div class="lv-skills"><span class="lv-lbl">SKILLS UNLOCKED</span><ul><li class="sk sk-soft">End-to-end ownership <b>14</b></li><li class="sk sk-soft">Product feedback <b>9</b></li><li class="sk sk-soft">Training and rollout <b>9</b></li><li class="sk sk-soft">Travel <b>7</b></li></ul></div>
+            <div class="lv-res"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>RESOURCES</span><ul><li><a href="https://builders.ramp.com/post/forward-deployed-engineering" target="_blank" rel="noopener noreferrer">Ramp: Forward Deployed Engineering</a></li></ul></div>
+          </div>
+        </li>
+        <li class="level lv-final" data-level="11">
+          <span class="lv-node"><span class="lv-here"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>YOU ARE HERE</span><span class="lv-num"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg></span></span>
+          <div class="lv-card">
+            <div class="lv-head"><span class="lv-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg></span><div><span class="lv-tag">FINAL</span><h4>FDE</h4></div><span class="lv-count">0/3</span></div>
+            <ul class="lv-tasks">
+              <li><input type="checkbox" id="q11a"><label for="q11a">Pick 3 postings from section 04 that match your level.</label></li>
+              <li><input type="checkbox" id="q11b"><label for="q11b">Map each posting’s required skills to your own projects; close the gaps.</label></li>
+              <li><input type="checkbox" id="q11c"><label for="q11c">Apply, and for each project describe the result you measured.</label></li>
+            </ul>
+            <div class="lv-boss lv-boss-final"><span class="lv-lbl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>GOOD TO KNOW</span><p>Palantir accepts applicants with 6 months of experience. Of the 10 postings that state years of experience, 6 ask for 3 years or less. <a href="#ilanlar">Go to the postings</a></p></div>
+          </div>
+        </li>
+        </ol>
+      </div>
+    </div>
+    <figcaption><span class="fno">Figure 4</span>Ten levels and a final. Durations are estimates for someone starting from scratch with about 10 hours a week; if you have experience, pick your starting level above. The number next to each unlocked skill is how many of the 20 postings ask for it; red ones are field skills.</figcaption>
+  </figure>
+</section>
+
+
+<!-- ============ 04 ============ -->
+<section class="sec" id="ilanlar" aria-labelledby="h-04">
+  <header class="sec-head"><span class="sec-no">04</span><h2 id="h-04">FDE job postings</h2></header>
+  <div class="jobs-meta"><span class="chip">Last checked: 26 September 2026</span><span class="chip">20 postings</span><span class="chip">7 in Türkiye</span></div>
+  <ul class="jobs">
+    <li><a href="https://careers.bcg.com/global/en/job/58912/Forward-Deployed-AI-Engineer-T%C3%BCrkiye-BCG-X" target="_blank" rel="noopener noreferrer"><span class="job-co">BCG X</span><span class="job-title">Forward Deployed AI Engineer, Türkiye</span><span class="job-loc">Istanbul</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/wonderful/e0f8fbae-802d-4c0a-b6dc-61afd146e46d" target="_blank" rel="noopener noreferrer"><span class="job-co">Wonderful</span><span class="job-title">Forward Deployed Engineer</span><span class="job-loc">Türkiye</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/hilberts/d6c4e0fd-9fa9-4d1e-a872-5935310a6db1" target="_blank" rel="noopener noreferrer"><span class="job-co">Hilbert</span><span class="job-title">Forward Deployed Data Engineer (Integration)</span><span class="job-loc">Türkiye · EU, remote</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://tr.linkedin.com/jobs/view/forward-deployed-ai-engineer-at-arabam-com-4439226311" target="_blank" rel="noopener noreferrer"><span class="job-co">arabam.com</span><span class="job-title">Forward Deployed AI Engineer</span><span class="job-loc">Istanbul</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://tr.linkedin.com/jobs/view/ai-forward-deployed-engineer-at-apilex-4467384445" target="_blank" rel="noopener noreferrer"><span class="job-co">Apilex</span><span class="job-title">AI Forward Deployed Engineer</span><span class="job-loc">Şişli, Istanbul</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://tr.linkedin.com/jobs/view/forward-deployed-software-engineer-at-luron-ai-inc-4459946827" target="_blank" rel="noopener noreferrer"><span class="job-co">Luron AI</span><span class="job-title">Forward Deployed Software Engineer</span><span class="job-loc">Istanbul, on-site</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://tr.linkedin.com/jobs/view/forward-deployed-ai-engineer-at-zaigo-4455429356" target="_blank" rel="noopener noreferrer"><span class="job-co">Zaigo</span><span class="job-title">Forward-Deployed AI Engineer</span><span class="job-loc">Istanbul</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Ireland---Dublin/Forward-Deployed-Engineer_JR357424-1" target="_blank" rel="noopener noreferrer"><span class="job-co">Salesforce</span><span class="job-title">Forward Deployed Engineer<small>Turkish or Greek speaker</small></span><span class="job-loc">Dublin</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://job-boards.greenhouse.io/anthropic/jobs/5423029008" target="_blank" rel="noopener noreferrer"><span class="job-co">Anthropic</span><span class="job-title">Forward Deployed Engineer, Applied AI</span><span class="job-loc">London</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/openai/7ce64627-b273-48e1-b3bc-ef4be0444706" target="_blank" rel="noopener noreferrer"><span class="job-co">OpenAI</span><span class="job-title">Forward Deployed Engineer<small>Spanish speaker</small></span><span class="job-loc">London</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.lever.co/palantir/5168e8fd-fec1-4fea-b7a1-81bdaea65850" target="_blank" rel="noopener noreferrer"><span class="job-co">Palantir</span><span class="job-title">Forward Deployed Software Engineer</span><span class="job-loc">London, hybrid</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://www.google.com/about/careers/applications/jobs/results/106113082882695878-forward-deployed-engineer-iii-applied-ai" target="_blank" rel="noopener noreferrer"><span class="job-co">Google</span><span class="job-title">Forward Deployed Engineer III, Applied AI</span><span class="job-loc">Zurich · London</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://databricks.com/company/careers/open-positions/job?gh_jid=8593713002" target="_blank" rel="noopener noreferrer"><span class="job-co">Databricks</span><span class="job-title">AI Forward Deployed Engineer</span><span class="job-loc">London</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/cohere/691982e3-9357-42e4-b4c3-a65cae906935" target="_blank" rel="noopener noreferrer"><span class="job-co">Cohere</span><span class="job-title">Forward Deployed Engineer, Agentic Platform</span><span class="job-loc">UK, remote</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://job-boards.greenhouse.io/scaleai/jobs/4712145005" target="_blank" rel="noopener noreferrer"><span class="job-co">Scale AI</span><span class="job-title">Sr Staff ML Forward Deployed Engineer, Enterprise GenAI</span><span class="job-loc">London</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/mistral.ai/37108a18-4eaa-4554-af3c-39e3556191cb" target="_blank" rel="noopener noreferrer"><span class="job-co">Mistral AI</span><span class="job-title">Applied AI, Forward Deployed ML Engineer</span><span class="job-loc">Paris</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/elevenlabs/50d20869-819d-4ae3-be8d-71c3c9bf3394" target="_blank" rel="noopener noreferrer"><span class="job-co">ElevenLabs</span><span class="job-title">Forward Deployed Engineer</span><span class="job-loc">Netherlands, remote</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://jobs.ashbyhq.com/n8n/c9fc97fa-a473-4133-b3cb-502785649ecd" target="_blank" rel="noopener noreferrer"><span class="job-co">n8n</span><span class="job-title">Forward Deployed Engineer, EMEA</span><span class="job-loc">Europe and UK, remote</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://job-boards.greenhouse.io/gitlab/jobs/8522265002" target="_blank" rel="noopener noreferrer"><span class="job-co">GitLab</span><span class="job-title">Forward Deployed Engineer, EMEA</span><span class="job-loc">Europe and UK, remote</span><span class="job-go" aria-hidden="true"></span></a></li>
+    <li><a href="https://www.amazon.jobs/en/jobs/10523580/software-development-engineer-aws-forward-deployed-engineering" target="_blank" rel="noopener noreferrer"><span class="job-co">AWS</span><span class="job-title">Software Development Engineer, Forward Deployed Engineering</span><span class="job-loc">Berlin</span><span class="job-go" aria-hidden="true"></span></a></li>
+  </ul>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="sec" id="kaynaklar" aria-labelledby="h-05">
+  <header class="sec-head"><span class="sec-no">05</span><h2 id="h-05">Resources</h2></header>
+
+  <div class="src-group">
+    <h3 id="k-yazilar">Essential reading</h3>
+    <ul class="srcs">
+      <li><a href="https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers" target="_blank" rel="noopener noreferrer">What are Forward Deployed Engineers, and why are they so in demand?</a><span class="by">Gergely Orosz · The Pragmatic Engineer · August 2025</span><span class="why">The most thorough overview: the Palantir origins, how OpenAI and Ramp run the role, and why demand is rising.</span></li>
+      <li><a href="https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87" target="_blank" rel="noopener noreferrer">Dev versus Delta: Demystifying engineering roles at Palantir</a><span class="by">Palantir Blog · 2022</span><span class="why">Dev: one capability, many customers. Delta: one customer, many capabilities.</span></li>
+      <li><a href="https://nabeelqu.substack.com/p/reflections-on-palantir" target="_blank" rel="noopener noreferrer">Reflections on Palantir</a><span class="by">Nabeel S. Qureshi · October 2024</span><span class="why">The FDE model and the birth of Foundry, from someone who spent eight years at Palantir.</span></li>
+      <li><a href="https://www.barry.ooo/posts/fde-culture" target="_blank" rel="noopener noreferrer">Understanding Forward Deployed Engineering</a><span class="by">Barry McCardel · Hex co-founder, ex-Palantir · November 2024</span><span class="why">What the real FDE model costs, autonomy in the field, and why it does not suit every startup.</span></li>
+      <li><a href="https://tedmabrey.substack.com/p/sorry-that-isnt-an-fde" target="_blank" rel="noopener noreferrer">Sorry, that isn’t an FDE</a><span class="by">Ted Mabrey · Palantir · September 2024</span><span class="why">From inside Palantir: roles called FDE that are not FDE.</span></li>
+      <li><a href="https://a16z.com/services-led-growth/" target="_blank" rel="noopener noreferrer">Trading Margin for Moat: Why the Forward Deployed Engineer Is the Hottest Job in Startups</a><span class="by">Joe Schmidt · a16z · June 2025</span><span class="why">AI startups should give up margin for FDEs and embed themselves in the customer’s business systems.</span></li>
+      <li><a href="https://a16z.com/the-palantirization-of-everything/" target="_blank" rel="noopener noreferrer">The Palantirization of everything</a><span class="by">Marc Andrusko · a16z · January 2026</span><span class="why">Most companies copying the model risk turning into expensive services firms.</span></li>
+      <li><a href="https://www.svpg.com/forward-deployed-engineers/" target="_blank" rel="noopener noreferrer">Forward Deployed Engineers</a><span class="by">Marty Cagan · SVPG · September 2025</span><span class="why">The FDE through a product management lens: discovery and prototyping at the customer.</span></li>
+      <li><a href="https://review.firstround.com/so-you-want-to-hire-a-forward-deployed-engineer/" target="_blank" rel="noopener noreferrer">So You Want to Hire a Forward Deployed Engineer</a><span class="by">First Round Review · February 2026</span><span class="why">Founders explain when you need an FDE and whom to hire.</span></li>
+      <li><a href="https://newsletter.pragmaticengineer.com/p/is-the-fde-role-becoming-less-desirable" target="_blank" rel="noopener noreferrer">Is the FDE role becoming less desirable?</a><span class="by">Gergely Orosz · The Pragmatic Engineer · March 2026</span><span class="why">The other side of the demand boom: why the role’s appeal is being questioned.</span></li>
+    </ul>
+  </div>
+
+  <div class="src-group">
+    <h3 id="k-sirketler">From the companies</h3>
+    <ul class="srcs">
+      <li><a href="https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1" target="_blank" rel="noopener noreferrer">A Day in the Life of a Palantir Forward Deployed Software Engineer</a><span class="by">Palantir Blog · November 2020</span><span class="why">A Delta’s day: data integration for a US Department of Defense customer.</span></li>
+      <li><a href="https://openai.com/business/the-openai-deployment-company/" target="_blank" rel="noopener noreferrer">Forward deployed engineering at OpenAI</a><span class="by">OpenAI · 2026</span><span class="why">What OpenAI FDEs own from discovery to production, with John Deere and BBVA as examples.</span></li>
+      <li><a href="https://openai.com/index/openai-launches-the-deployment-company/" target="_blank" rel="noopener noreferrer">OpenAI launches the OpenAI Deployment Company</a><span class="by">OpenAI · May 2026</span><span class="why">A new company with 19 partners; roughly 150 FDEs through the Tomoro acquisition.</span></li>
+      <li><a href="https://www.anthropic.com/news/enterprise-ai-services-company" target="_blank" rel="noopener noreferrer">Building a new enterprise AI services company</a><span class="by">Anthropic · May 2026</span><span class="why">An enterprise AI services company with Blackstone, Hellman &amp; Friedman and Goldman Sachs.</span></li>
+      <li><a href="https://builders.ramp.com/post/forward-deployed-engineering" target="_blank" rel="noopener noreferrer">Forward Deployed Engineering</a><span class="by">Leo Mehr · Ramp Builders · August 2025</span><span class="why">How Ramp grew its FDE team from 2 people to about 16.</span></li>
+      <li><a href="https://www.salesforce.com/news/stories/forward-deployed-engineers-making-ai-jobs-more-human/" target="_blank" rel="noopener noreferrer">How Forward Deployed Engineers Are Proving AI Makes Tech Jobs More Human</a><span class="by">Salesforce Newsroom · March 2026</span><span class="why">Salesforce tripled its FDE team in six months; 40 to 50% of the roles were filled through internal transfers.</span></li>
+      <li><a href="https://www.databricks.com/blog/forward-deployed-engineering-delivering-business-outcomes-ai" target="_blank" rel="noopener noreferrer">Forward Deployed Engineering: Delivering Business Outcomes with AI</a><span class="by">Jason Martin · Databricks Blog · June 2026</span><span class="why">Databricks’ FDE organization worked with more than 1,900 customers in 12 months.</span></li>
+      <li><a href="https://sierra.ai/blog/meet-the-ai-agent-engineer" target="_blank" rel="noopener noreferrer">Meet the AI agent engineer</a><span class="by">Natalie Meurer · Sierra · July 2024</span><span class="why">The “agent engineer,” Sierra’s counterpart to the FDE.</span></li>
+    </ul>
+  </div>
+
+  <div class="src-group">
+    <h3 id="k-video">Podcasts and video</h3>
+    <ul class="srcs">
+      <li><a href="https://www.youtube.com/watch?v=Zyw-YA0k3xo" target="_blank" rel="noopener noreferrer">The FDE Playbook for AI Startups with Bob McGrew</a><span class="by">Y Combinator · Lightcone · September 2025</span><span class="why">Bob McGrew, one of Palantir’s first engineers, on the role’s origins and how to adapt it for AI startups.</span></li>
+      <li><a href="https://www.youtube.com/watch?v=cBD7_R-Cizg" target="_blank" rel="noopener noreferrer">Colin Jarvis, Head of Forward Deployed Engineering at OpenAI</a><span class="by">Altimeter Capital · November 2025</span><span class="why">OpenAI’s head of FDE on eval-driven delivery, real deployments and building the team.</span></li>
+      <li><a href="https://www.youtube.com/watch?v=xQkSenlJvwA" target="_blank" rel="noopener noreferrer">How Palantir built the ultimate founder factory</a><span class="by">Nabeel S. Qureshi · Lenny’s Podcast · May 2025</span><span class="why">The FDE segments start at 19:11, 38:02 and 46:36.</span></li>
+      <li><a href="https://www.youtube.com/watch?v=KwhgfwOSToQ" target="_blank" rel="noopener noreferrer">Forward Deployed Engineering 101</a><span class="by">Kevin Bai · Anthropic, ex-Palantir · AI Engineer · July 2026</span><span class="why">When you need FDEs, how to structure the team, and the role of the platform.</span></li>
+      <li><a href="https://www.youtube.com/watch?v=Byv311hdoHE" target="_blank" rel="noopener noreferrer">The Dirty Secret of Forward Deployed Engineering</a><span class="by">Natalie Meurer · Sierra · AI Engineer · July 2026</span><span class="why">“FDE” covers many different jobs; the common denominator is accountability to the customer.</span></li>
+      <li><a href="https://www.youtube.com/watch?v=ITMXwI6QL6A" target="_blank" rel="noopener noreferrer">How Forward Deployed Engineering is done at Ramp</a><span class="by">Leo Mehr · AI Engineer · July 2026</span><span class="why">How Ramp’s FDE team works, from the field.</span></li>
+      <li><a href="https://www.youtube.com/watch?v=hWuoH-ODDNc" target="_blank" rel="noopener noreferrer">The Future of Forward Deployed Engineering</a><span class="by">South Park Commons · May 2026</span><span class="why">A panel with FDEs from OpenAI, Ramp, Nominal and Dataland.</span></li>
+      <li><a href="https://colossus.com/episode/celebrating-heretics/" target="_blank" rel="noopener noreferrer">Shyam Sankar: Celebrating Heretics</a><span class="by">Invest Like the Best · March 2026</span><span class="why">The Palantir CTO who built the FDE model explains the role’s origins at 28:15.</span></li>
+    </ul>
+  </div>
+
+  <div class="src-group">
+    <h3 id="k-veri">News and data</h3>
+    <ul class="srcs">
+      <li><a href="https://www.ft.com/content/91002071-7874-4cb7-9245-08ca0571c408" target="_blank" rel="noopener noreferrer">The new hot job in AI: forward-deployed engineers</a><span class="by">Financial Times · November 2025</span><span class="why">FDE postings grew 800% from January to September 2025 (Indeed data).</span></li>
+      <li><a href="https://www.businessinsider.com/forward-deployed-engineer-jobs-in-demand-2026-5" target="_blank" rel="noopener noreferrer">Job postings for this tech role have grown more than 700% in the last year</a><span class="by">Business Insider · May 2026</span><span class="why">Roughly 729% year-over-year growth as of April 2026 (Indeed data).</span></li>
+      <li><a href="https://techcrunch.com/2026/07/30/forward-deployed-engineers-are-the-ai-industrys-latest-talent-obsession/" target="_blank" rel="noopener noreferrer">Forward-deployed engineers are the AI industry’s latest talent obsession</a><span class="by">TechCrunch · July 2026</span><span class="why">About 2,000 fully qualified FDEs in the US; 70% of companies plan to hire FDEs.</span></li>
+      <li><a href="https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/" target="_blank" rel="noopener noreferrer">One of the fastest-growing jobs in Silicon Valley sends engineers straight to customers’ offices</a><span class="by">Fortune · September 2026</span><span class="why">Postings grew more than 1,000% from January to August 2026; the median salary is above $188K.</span></li>
+      <li><a href="https://techcrunch.com/2026/06/30/amazon-launches-new-1-billion-fde-org-following-openai-and-anthropic/" target="_blank" rel="noopener noreferrer">Amazon launches new $1 billion FDE org following OpenAI and Anthropic</a><span class="by">TechCrunch · June 2026</span><span class="why">AWS’s FDE organization, and the valuations of OpenAI’s and Anthropic’s FDE ventures.</span></li>
+      <li><a href="https://www.geekwire.com/2026/microsoft-announces-2-5b-frontier-company-to-embed-ai-engineers-inside-customers/" target="_blank" rel="noopener noreferrer">Microsoft announces $2.5B Frontier Company to embed AI engineers inside customers</a><span class="by">GeekWire · July 2026</span><span class="why">A unit of more than 6,000 people, mostly drawn from engineering and forward-deployed teams.</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer class="foot"><span>Selman Ay</span><span>FDE: What It Is and How to Become One · September 2026</span></footer>
+
+<a class="fab" href="#icindekiler"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 3h12M1 7h12M1 11h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Contents</a>
+</div>
+
+<script>
+(function () {
+  var app = document.getElementById('fde');
+  var root = document.documentElement;
+  var bar = document.querySelector('.progress > span');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a.rl'));
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.rail-sec'));
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var max = root.scrollHeight - root.clientHeight;
+    var y = window.pageYOffset || root.scrollTop || 0;
+    if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    var current = -1;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top <= 140) current = i;
+    }
+    links.forEach(function (a, i) { a.classList.toggle('is-on', i === current); });
+    secs.forEach(function (li) {
+      var on = current >= 0 && li.contains(links[current]);
+      li.classList.toggle('is-open', on);
+      var head = li.querySelector('a.rl');
+      if (on && head) head.classList.add('is-on');
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+
+  var cover = document.getElementById('kapak');
+  if (cover && app && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      app.classList.toggle('past-cover', !entries[0].isIntersecting);
+    }, { threshold: 0.02 }).observe(cover);
+  }
+})();
+</script>
+
+<script>
+(function () {
+  var wrap = document.getElementById('levels');
+  if (!wrap) return;
+  var base = wrap.querySelector('.lv-path .base'), done = wrap.querySelector('.lv-path .done');
+  var levels = Array.prototype.slice.call(wrap.querySelectorAll('.level'));
+  var boxes = Array.prototype.slice.call(wrap.querySelectorAll('.lv-tasks input'));
+  var personas = Array.prototype.slice.call(document.querySelectorAll('.q-persona'));
+  var KEY = 'fde-quest-v2', START = 'fde-start-v2';
+  function load(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var saved = load(KEY) || [];
+  boxes.forEach(function (b) { if (saved.indexOf(b.id) >= 0) b.checked = true; });
+  function centers() {
+    var wr = wrap.getBoundingClientRect();
+    return levels.map(function (l) {
+      var r = l.querySelector('.lv-node').getBoundingClientRect();
+      return [r.left - wr.left + r.width / 2, r.top - wr.top + r.height / 2];
+    });
+  }
+  function curve(a, b) {
+    var my = (a[1] + b[1]) / 2;
+    return 'M' + a[0] + ' ' + a[1] + ' C' + a[0] + ' ' + my + ' ' + b[0] + ' ' + my + ' ' + b[0] + ' ' + b[1] + ' ';
+  }
+  function draw() {
+    var p = centers(), d = '', dd = '';
+    for (var i = 1; i < p.length; i++) {
+      var c = curve(p[i - 1], p[i]);
+      d += c;
+      if (levels[i - 1].classList.contains('is-done')) dd += c;
+    }
+    base.setAttribute('d', d);
+    done.setAttribute('d', dd);
+  }
+  function update() {
+    var total = 0;
+    levels.forEach(function (l) {
+      var ins = l.querySelectorAll('.lv-tasks input'), n = 0;
+      for (var i = 0; i < ins.length; i++) if (ins[i].checked) n++;
+      total += n;
+      l.classList.toggle('is-done', ins.length > 0 && n === ins.length);
+      var c = l.querySelector('.lv-count');
+      if (c) c.textContent = n + '/' + ins.length;
+    });
+    var xd = document.getElementById('xp-done'), xb = document.getElementById('xp-bar');
+    if (xd) xd.textContent = total;
+    if (xb) xb.style.width = (boxes.length ? total / boxes.length * 100 : 0) + '%';
+    save(KEY, boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.id; }));
+    draw();
+  }
+  function setStart(id, scroll) {
+    var btn = document.getElementById(id);
+    if (!btn) return;
+    personas.forEach(function (p) { p.setAttribute('aria-pressed', p === btn ? 'true' : 'false'); });
+    var lvl = btn.getAttribute('data-start');
+    levels.forEach(function (l) { l.classList.toggle('is-start', l.getAttribute('data-level') === lvl); });
+    save(START, id);
+    if (scroll) {
+      var t = wrap.querySelector('.level.is-start');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    }
+  }
+  boxes.forEach(function (b) { b.addEventListener('change', update); });
+  personas.forEach(function (p) { p.addEventListener('click', function () { setStart(p.id, true); }); });
+  var s = load(START);
+  if (s) setStart(s, false);
+  update();
+  if ('ResizeObserver' in window) new ResizeObserver(draw).observe(wrap);
+  else window.addEventListener('resize', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+})();
+</script>
+</body>
+</html>
